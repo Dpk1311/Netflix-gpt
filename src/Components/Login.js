@@ -23,8 +23,8 @@ const Login = () => {
     setIsSignInForm(!isSignInForm);
   };
   const handleClick = () => {
-    console.log(Email.current.value);
-    console.log(Password.current.value);
+    // console.log(Email.current.value);
+    // console.log(Password.current.value);
     const message = isValid(Email.current.value, Password.current.value);
     setErrorMessage(message);
     if (message) return;

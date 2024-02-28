@@ -9,3 +9,4 @@ export const API_Options = {
     }
   };
   
+export const ImgURL = "https://image.tmdb.org/t/p/w780"
