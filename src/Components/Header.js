@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../utils/userSlice";
 import { Logo_Url } from "../utils/constants";
+import { gpttoggleview } from "../utils/gptSlice";
 
 const Header = () => {
   const user = useSelector((store) => store.user);
@@ -33,6 +34,10 @@ const Header = () => {
     });
   }, []);
 
+  const handleGptToggle = ()=>{
+dispatch(gpttoggleview())
+  }
+
   return (
     <div className="flex justify-between absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 text-white">
       <img
@@ -42,12 +47,13 @@ const Header = () => {
       />
       {user && (
         <div className="flex p-4">
+          <button className="mx-2 px-2 bg-amber-700 rounded-lg" onClick={handleGptToggle}>GPTSearch</button>
           <p className="m-2">Hi,{user.displayName}</p>
-          <img
+          {/* <img 
             alt="usericon"
             src="https://occ-0-4157-3662.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTZ2zlLdBVC05fsd2YQAR43J6vB1NAUBOOrxt7oaFATxMhtdzlNZ846H3D8TZzooe2-FT853YVYs8p001KVFYopWi4D4NXM.png?r=229"
-          />
-          <button onClick={logoutHandler}>Log Out</button>
+          /> */}
+          <button className="whitespace-nowrap ml-2" onClick={logoutHandler}>Log Out</button>
         </div>
       )}
     </div>
