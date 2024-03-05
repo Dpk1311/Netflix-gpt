@@ -33,21 +33,22 @@ const Header = () => {
       }
     });
   }, []);
+  const showgpt = useSelector((store) =>store.gpt.gptToggle)
 
   const handleGptToggle = ()=>{
 dispatch(gpttoggleview())
   }
 
   return (
-    <div className="flex justify-between absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 text-white">
+    <div className="flex flex-col md:flex-row justify-between absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 text-white">
       <img
         className="w-44"
         src={Logo_Url}
         alt="logo"
       />
       {user && (
-        <div className="flex p-4">
-          <button className="mx-2 px-2 bg-amber-700 rounded-lg" onClick={handleGptToggle}>GPTSearch</button>
+        <div className="flex justify-between p-4">
+          <button className="mx-2 px-2 bg-amber-700 rounded-lg" onClick={handleGptToggle}>{showgpt ? "Home Page" : "GPT Search"}</button>
           <p className="m-2">Hi,{user.displayName}</p>
           {/* <img 
             alt="usericon"

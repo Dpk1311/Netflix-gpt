@@ -81,16 +81,16 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
+        <img className="h-screen object-cover w-screen"
           src={LoginBackgroundImgURL}
           alt="background-img"
         />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-3/12 p-12 absolute bg-black my-36 mx-auto left-0 right-0 text-white bg-opacity-80 rounded-lg"
+        className="md:w-3/12 w-[70%] md:p-12 p-5 absolute bg-black my-36 md:my-36 mx-auto left-0 right-0 text-white bg-opacity-80 rounded-lg"
       >
-        <h1 className="font-bold text-3xl py-4">
+        <h1 className="font-bold md:text-3xl text-xl py-2 md:py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && (
@@ -98,29 +98,29 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-4 my-4 w-full bg-gray-700"
+            className="md:p-4 p-2 md:my-4 my-2 w-full bg-gray-700"
           />
         )}
         <input
           ref={Email}
           type="text"
           placeholder="Email Address"
-          className="p-4 my-4 w-full bg-gray-700"
+          className="md:p-4 p-2 md:my-4 my-2 w-full bg-gray-700"
         />
         <input
           ref={Password}
           type="password"
           placeholder="Password"
-          className="p-4 my-4 w-full bg-gray-700"
+          className="md:p-4 p-2 md:my-4 my-2 w-full bg-gray-700"
         />
         <p className="text-red-600 font-semibold">{errorMessage}</p>
         <button
-          className="my-6 p-6 bg-red-700 w-full rounded-lg"
+          className="md:my-6 my-3 md:p-6 p-3 bg-red-700 w-full rounded-lg"
           onClick={handleClick}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
-        <p className="p-2 m-2 cursor-pointer" onClick={toggle}>
+        <p className="md:p-2 p-1 md:m-2 m-1 cursor-pointer" onClick={toggle}>
           {isSignInForm
             ? "New to NetFlix? SignUp Here"
             : "Already have a Accout? SignIn Here"}
